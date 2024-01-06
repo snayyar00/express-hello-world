@@ -81,7 +81,7 @@ app.post('/form', async (req, res) => {
     console.log('Received POST request for /form:', req.body);
     const visitorDocument = new Visitor({
         businessName: req.body.businessName,
-        email: req.body.email,
+        email: req.body.fEmail,
         website: req.body.website,
         Uniquetoken: uniqueToken,
     });
@@ -95,7 +95,7 @@ app.post('/form', async (req, res) => {
     }
 
     try {
-        sendEmail(req.body.email, 'Welcome to Webability', `
+        sendEmail(req.body.fEmail, 'Welcome to Webability', `
             <html>
             <head>
             <style>
