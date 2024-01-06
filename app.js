@@ -95,7 +95,8 @@ app.post('/form', async (req, res) => {
     }
 
     try {
-        sendEmail(req.body.fEmail, 'Welcome to Webability', `
+      console.log(req.body.email)
+        sendEmail(req.body.email, 'Welcome to Webability', `
             <html>
             <head>
             <style>
