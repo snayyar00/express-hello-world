@@ -78,14 +78,15 @@ const Visitor = mongoose.model('Visitor', visitorSchema);
 
 app.post('/form', async (req, res) => {
     const uniqueToken = generateUniqueToken();
-    console.log('Received POST request for /form:', req.body);
+    console.log('Received POST request for /form:', req.body.email);
     const visitorDocument = new Visitor({
         businessName: req.body.businessName,
-        email: req.body.fEmail,
+        email: req.body.email,
         website: req.body.website,
         Uniquetoken: uniqueToken,
     });
-
+    const emailToSend = req.body.email;
+    console.log(emailToSend)
     try {
         await visitorDocument.save();
         res.send('Received POST request for /form');
